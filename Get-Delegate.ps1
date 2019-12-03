@@ -41,7 +41,7 @@ $UserMailboxes = Get-Mailbox -RecipientTypeDetails 'UserMailbox' -ResultSize Unl
 ForEach ($UserMailbox in $UserMailboxes)
 {
     $i = $i+1
-    Write-Progress -Activity "Reviewing Mailbox Permissions" -Status "For $UserMailbox" -PercentComplete ($i/$UserNailboxes.count*100)
+    Write-Progress -Activity "Reviewing Mailbox Permissions" -Status "For $UserMailbox" -PercentComplete ($i/$UserMailboxes.count*100)
     $Mailbox = "" + $UserMailbox.PrimarySmtpAddress
     $MailboxName = "" + $UserMailbox.Name
     $Folders = Get-MailboxFolderStatistics $Mailbox | ForEach-Object {$_.FolderPath} | ForEach-Object {$_.Replace(“/”,”\”)}
